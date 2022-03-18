@@ -34,7 +34,7 @@ T_Elt sommet(const T_Pile *P) {
 	return 0;
 }
 
-int hauteur(const T_Pile *P {
+int hauteur(const T_Pile *P) {
 	//TODO:
 	
 	return 0;

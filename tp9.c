@@ -6,7 +6,7 @@
 int menu() {
 	int choix;
 
-	printf("\n\n\n SDA1 TP9");
+	printf("\n\n\n SDA1 TP9, LAFFRA Timothee et TELLIER--CALOONE Tom");
 	printf("\n\n\n 1 : tester mon fichier file.c");
 	printf("\n 2 : tester mon fichier pile.c");
 	printf("\n 3 : afficher et compter les permutations d'une chaine");
@@ -22,6 +22,7 @@ int main() {
 	T_File mafile;
 	T_Pile mapile;
 	int chx;
+	T_Elt testVar = 5; // Valeur test qui sert à tester les piles/files. A modifier si on change de type. !! DIFFERENT DE 0 !!
 	// int taille;
 	// char chaine[20];
 
@@ -30,10 +31,10 @@ int main() {
 		switch (chx) {
 			case 1:
 				// testez toutes vos fonctions par un jeu de test de votre choix
-				// testPile(&mapile); //TP9 partie 1 : à ecrire
+				testFile(&mafile, &testVar);
 				break;
 			case 2: // testez toutes vos fonctions par un jeu de test de votre choix
-				// testFile(&mafile); //TP9 partie 1 : à ecrire
+				// testPile(&mafile); //TP9 partie 1 : à ecrire
 				break;
 			case 3:
 				// scanf("%s",chaine); //une chaine de longueur <=MAX

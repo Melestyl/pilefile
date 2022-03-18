@@ -10,3 +10,5 @@ file.o : file.c file.h
 es.o : es.c es.h
 	$(c) $(op) -c es.c	
 
+clean:
+	$(RM) *.o tp9

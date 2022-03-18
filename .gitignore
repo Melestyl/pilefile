@@ -1,9 +1,5 @@
 # Fichiers objet
 *.o
 
-# Exécutables
-*.exe
-*.out
-*.app
-
-# Others
+# Exécutable
+tp9
