@@ -53,7 +53,8 @@ int retirer(T_File *ptrF, T_Elt *ptrE)  {
 int ajouter(T_File *ptrF, T_Elt *ptrE) {
 	// Si espace libre, ajout en queue
 	if (!filePleine(ptrF)) {
-		affecterElt(&ptrF->Elts[ptrF->Queue++], ptrE);
+		affecterElt(&ptrF->Elts[ptrF->Queue], ptrE);
+		ptrF->Queue++;
 		if (ptrF->Queue == MAX + 1) ptrF->Queue = 0;
 	}
 	else
@@ -72,7 +73,7 @@ int fileVide(const T_File *prtF) {
 
 int filePleine(const T_File *ptrF) {
 	// Quand MAX elts dans la file
-	if ((ptrF->Queue == MAX - 1 && ptrF->Tete == 0) || (ptrF->Queue + 1 == ptrF->Tete))
+	if ((ptrF->Queue == MAX && ptrF->Tete == 0) || (ptrF->Queue + 1 == ptrF->Tete))
 		return 1;
 
 	return 0;
