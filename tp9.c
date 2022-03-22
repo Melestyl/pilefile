@@ -25,8 +25,6 @@ int main() {
 	T_Elt testVar = 5; // Valeur test qui sert à tester les piles/files. A modifier si on change de type. !! DIFFERENT DE 0 !!
 	// int taille;
 	// char chaine[20];
-	empiler(&mapile, &testVar);
-	afficherPile(&mapile);
 
 	do {
 		chx = menu();

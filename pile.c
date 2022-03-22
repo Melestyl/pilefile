@@ -24,8 +24,9 @@ void testPile(T_Pile *P, T_Elt *testVar) {
 		fprintf(stderr, "Problème depiler() (ne dépile pas la bonne valeur)\n");
 	if (pileVide(P))
 		fprintf(stderr, "Problème pileVide() (renvoie vide alors qu'elle ne l'est pas)\n");
-	if (sommet(P) == *testVar)
+	if (sommet(P) != *testVar)
 		fprintf(stderr, "Problème sommet() (ne renvoie pas la valeur de testVar)\n");
+
 	if (hauteur(P) == 0)
 		fprintf(stderr, "Problème hauteur() (renvoie 0)\n");
 	printf("Affichage de la pile :\n");
