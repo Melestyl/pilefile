@@ -83,6 +83,18 @@ int hauteur(const T_Pile *P) {
 }
 
 void afficherPile(T_Pile *P) {
-	for (int i=0; i<P->nbElts; i++)
-		afficherElt(&P->Elts[i]);
-}
+	T_Pile temp;
+	T_Elt elt;
+	int nb_elt = P->nbElts;
+
+	for (int i=0; i<nb_elt; i++){
+		depiler(&P, elt);
+		afficherElt(elt);
+		empiler(&temp, elt);
+	}
+	for(int i = 0; i<nb_elt; i++){
+		depiler(&temp, elt);
+		afficherElt(elt);
+		empiler(&P, elt);
+	}
+}	
