@@ -60,5 +60,5 @@ int fileVide(const T_File *ptrF);
  * @return
  */
 int filePleine(const T_File *ptrF); // qd MAX elts dans la file
-char* premier(const T_File *ptrF);		// valeur en tete de file
-void afficherFile(const T_File *ptrF);
+T_Elt premier(T_File *ptrF);		// valeur en tete de file
+void afficherFile(T_File *ptrF);

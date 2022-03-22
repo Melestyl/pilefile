@@ -4,10 +4,10 @@
 /*typedef int T_Elt; // TAD*/
 
 // ou
-typedef char T_chaine[50];
-typedef T_chaine T_Elt; //TAD
+/*typedef char T_chaine[50];
+typedef T_chaine T_Elt; //TAD*/
 // ou
-// typedef char  T_Elt; //TAD
+typedef char  T_Elt; //TAD
 
 /**
  * \brief Permet de saisir un élément, s'adapte au type

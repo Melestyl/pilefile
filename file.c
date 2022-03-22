@@ -78,7 +78,7 @@ int filePleine(const T_File *ptrF) {
 	return 0;
 }
 
-T_Elt premier(const T_File *ptrF) {
+T_Elt premier(T_File *ptrF) {
 	// Valeur en tete de file
 	if (!fileVide(ptrF))
 		return ptrF->Elts[ptrF->Tete];
@@ -86,7 +86,7 @@ T_Elt premier(const T_File *ptrF) {
 	return 0; //FIXME: Il faudrait trouver une autre valeur, comme NULL, car 0 peut-être une valeur
 }
 
-void afficherFile(const T_File *ptrF) {
+void afficherFile(T_File *ptrF) {
 	for (int i=0, j=ptrF->Tete; i < (ptrF->Queue - ptrF->Tete); i++, j++) {
 		if (j == MAX) j = 0;
 		afficherElt(&ptrF->Elts[j]);

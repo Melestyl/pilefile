@@ -22,8 +22,7 @@ int main() {
 	T_File mafile;
 	T_Pile mapile;
 	int chx;
-	T_Elt testVar; // Valeur test qui sert à tester les piles/files. A modifier si on change de type. !! DIFFERENT DE 0 !!
-	affecterElt(testVar, "abc");
+	T_Elt testVar = 'a'; // Valeur test qui sert à tester les piles/files. A modifier si on change de type. !! DIFFERENT DE 0 !!
 	// int taille;
 	// char chaine[20];
 
