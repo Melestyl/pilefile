@@ -90,11 +90,11 @@ void afficherPile(T_Pile *P) {
 
 	for (int i=0; i<nb_elt; i++){
 		depiler(P, &elt);
-		afficherElt(&elt);
 		empiler(&temp, &elt);
 	}
 	for(int i = 0; i<nb_elt; i++){
 		depiler(&temp, &elt);
+		afficherElt(&elt);
 		empiler(P, &elt);
 	}
 }	

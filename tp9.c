@@ -21,6 +21,7 @@ int main() {
 	T_File mafile;
 	T_Pile mapile;
 	int chx;
+	int taille;
 	char chaine[MAX];
 	T_Elt testVar = 5; // Valeur test qui sert à tester les piles/files. A modifier si on change de type. !! DIFFERENT DE 0 !!
 	// int taille;
@@ -46,6 +47,9 @@ int main() {
 			case 4:
 				// scanf("%d",&taille);//taille echiquier <=MAX
 				// echiquier(&mapile,taille); //TP9 partie 3: ecrire echiquier
+				printf("Entrer la chaine a permuter : ");
+				scanf("%d", &taille);
+				permutations(mapile, taille);
 				break;
 		}
 	} while (chx != 0);
@@ -56,47 +60,78 @@ int main() {
 
 void permutations(T_Pile mapile, char entree[]){
     T_Elt element;
+	int compteur = 0;
 
     while(!depiler(&mapile, &element)); //Vidage de pile
 
     do {
-        printf("Temp\n");
         while (noeudValide(mapile)){
-            printf("Temp2\n");
-            if (mapile.nbElts == strlen(entree)){
+            if (mapile.nbElts == (int)strlen(entree)){
                 afficherPile(&mapile);
+				printf("\n");
                 break;
             } 
-            else
-                empiler(&mapile, 0);
+            else{
+				element = 1;
+                empiler(&mapile, &element);
+				
+			}
+        }
+        while (mapile.nbElts != 0 && sommet(&mapile) == (int)strlen(entree)){
+            depiler(&mapile, &element);
         }
         
-        while (mapile.nbElts == 0 && sommet(&mapile) == strlen(entree)){
-            printf("Temp3\n");
-            depiler(&mapile, &element);
-        }
-        printf("Temp4\n");
 
-        if (mapile.nbElts != 0){
+        if (!mapile.nbElts == 0){
             depiler(&mapile, &element);
-            empiler(&mapile, &element+1);
+			element++;
+            empiler(&mapile, &element);
         }
-
-    } while (mapile.nbElts == 0);
+    } while (!mapile.nbElts == 0);
+	printf("\nIl y a %d solution(s)\n", compteur);
 }
 
 int noeudValide(T_Pile mapile){
-    int i, y; //Boucleurs
-    if (mapile.nbElts == 0)
-        return 1;
+	int compteur;
+	for (int i = 0; i < mapile.nbElts; i++) {
+		compteur = 0;
+		for (int j = 0; j < mapile.nbElts; j++) {
+			if (mapile.Elts[j] == mapile.Elts[i]) compteur++;
+			if (compteur > 1) return 0;
+		}
+	}
+	return 1;
+}
 
+void echiquier(T_Pile mapile, int taille){
+T_Elt element;
+	int compteur = 0;
 
-    for(i = mapile.nbElts-1; i >= 0; i--){
-        for(y = 0; y < i; y++){
-            if(mapile.Elts[i] == mapile.Elts[y]){
-                return 0;
-            }
+    while(!depiler(&mapile, &element)); //Vidage de pile
+
+    do {
+        while (noeudValide(mapile)){
+            if (mapile.nbElts == taille){
+                afficherPile(&mapile);
+				printf("\n");
+                break;
+            } 
+            else{
+				element = 1;
+                empiler(&mapile, &element);
+				
+			}
         }
-    }
-    return 1;
+        while (mapile.nbElts != 0 && sommet(&mapile) == taille){
+            depiler(&mapile, &element);
+        }
+        
+
+        if (!mapile.nbElts == 0){
+            depiler(&mapile, &element);
+			element++;
+            empiler(&mapile, &element);
+        }
+    } while (!mapile.nbElts == 0);
+	printf("\nIl y a %d solution(s)\n", compteur);
 }
