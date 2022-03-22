@@ -1,10 +1,6 @@
 // SDA1 TP 9 PILE de TAD (PILE d'ELEMENT)
 
-#include "pile.h"
-#include "file.h"
-
-int noeudValide(T_Pile mapile);
-void permutations();
+#include "tp9.h"
 
 int menu() {
 	int choix;
@@ -64,29 +60,4 @@ int main() {
 
 	printf("\nau plaisir de vous revoir ...\n");
 	return 0;
-}
-
-
-int noeudValide(T_Pile mapile){
-	int i, y; //Boucleurs
-	for(i = mapile.nbElts-1; i >= 0; i--){
-		for(y = 0; y < i; y++){
-			/* printf("\nElement 1: ");
-			afficherElt(&mapile.Elts[i]);
-			printf("\nElement 2: ");
-			afficherElt(&mapile.Elts[y]);
-			printf("\n---"); */
-			if(mapile.Elts[i] == mapile.Elts[y]){
-				return 1;
-			}
-		}
-	}
-	return 0;
-}
-
-void permutations(){
-	while (noeudValide){
-		/* code */
-	}
-	
 }
