@@ -39,7 +39,7 @@ int main() {
 				break;
 			case 3:
 				// scanf("%s",chaine); //une chaine de longueur <=MAX
-				// permut(&mapile,chaine); //TP9 partie 2: ecrire permut
+				// permut(&mapiless,chaine); //TP9 partie 2: ecrire permut
 				break;
 			case 4:
 				// scanf("%d",&taille);//taille echiquier <=MAX
