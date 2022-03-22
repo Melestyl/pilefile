@@ -1,7 +1,6 @@
 // SDA1 TP 9 PILE de TAD (PILE d'ELEMENT)
 
-#include "pile.h"
-#include "file.h"
+#include "tp9.h"
 
 int menu() {
 	int choix;
@@ -22,6 +21,7 @@ int main() {
 	T_File mafile;
 	T_Pile mapile;
 	int chx;
+	char chaine[MAX];
 	T_Elt testVar = 5; // Valeur test qui sert à tester les piles/files. A modifier si on change de type. !! DIFFERENT DE 0 !!
 	// int taille;
 	// char chaine[20];
@@ -39,6 +39,9 @@ int main() {
 			case 3:
 				// scanf("%s",chaine); //une chaine de longueur <=MAX
 				// permut(&mapile,chaine); //TP9 partie 2: ecrire permut
+				printf("Entrer la chaine a permuter : ");
+				scanf("%s", chaine);
+				permutations(mapile, chaine);
 				break;
 			case 4:
 				// scanf("%d",&taille);//taille echiquier <=MAX
@@ -49,4 +52,51 @@ int main() {
 
 	printf("\nau plaisir de vous revoir ...\n");
 	return 0;
+}
+
+void permutations(T_Pile mapile, char entree[]){
+    T_Elt element;
+
+    while(!depiler(&mapile, &element)); //Vidage de pile
+
+    do {
+        printf("Temp\n");
+        while (noeudValide(mapile)){
+            printf("Temp2\n");
+            if (mapile.nbElts == strlen(entree)){
+                afficherPile(&mapile);
+                break;
+            } 
+            else
+                empiler(&mapile, 0);
+        }
+        
+        while (mapile.nbElts == 0 && sommet(&mapile) == strlen(entree)){
+            printf("Temp3\n");
+            depiler(&mapile, &element);
+        }
+        printf("Temp4\n");
+
+        if (mapile.nbElts != 0){
+            depiler(&mapile, &element);
+            empiler(&mapile, &element+1);
+        }
+
+    } while (mapile.nbElts == 0);
+}
+
+int noeudValide(T_Pile mapile){
+    int i, y; //Boucleurs
+    if (mapile.nbElts == 0)
+        return 1;
+
+
+    for(i = mapile.nbElts-1; i >= 0; i--){
+        for(y = 0; y < i; y++){
+            if(mapile.Elts[i] == mapile.Elts[y]){
+                return 0;
+            }
+        }
+    }
+    return 1;
 }
