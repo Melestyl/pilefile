@@ -85,6 +85,7 @@ int noeudValide(T_Pile mapile){
 	return 1;
 }
 
+/*
 void permutations(T_Pile mapile, int entree){
 	T_Elt element = 69; // Poubelle
 
@@ -120,4 +121,4 @@ void permutations(T_Pile mapile, int entree){
 			empiler(&mapile, &element);
 		}
 	}while (mapile.nbElts != 0);
-}
+}*/

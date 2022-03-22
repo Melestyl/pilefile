@@ -10,7 +10,7 @@
 #include "file.h"
 
 int noeudValide(T_Pile mapile);
-void permutations(T_Pile mapile);
+void permutations(T_Pile mapile, int entree);
 int factorial(int n);
 
 #endif //PILEFILE_TP9_H

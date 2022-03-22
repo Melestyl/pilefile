@@ -88,13 +88,13 @@ void afficherPile(T_Pile *P) {
 	int nb_elt = P->nbElts;
 
 	for (int i=0; i<nb_elt; i++){
-		depiler(&P, elt);
-		afficherElt(elt);
-		empiler(&temp, elt);
+		depiler(P, &elt);
+		afficherElt(&elt);
+		empiler(&temp, &elt);
 	}
 	for(int i = 0; i<nb_elt; i++){
-		depiler(&temp, elt);
-		afficherElt(elt);
-		empiler(&P, elt);
+		depiler(&temp, &elt);
+		afficherElt(&elt);
+		empiler(P, &elt);
 	}
 }	
