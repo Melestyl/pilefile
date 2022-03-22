@@ -3,6 +3,9 @@
 #include "pile.h"
 #include "file.h"
 
+int noeudValide(T_Pile mapile);
+void permutations();
+
 int menu() {
 	int choix;
 
@@ -22,9 +25,21 @@ int main() {
 	T_File mafile;
 	T_Pile mapile;
 	int chx;
-	T_Elt testVar = 'a'; // Valeur test qui sert à tester les piles/files. A modifier si on change de type. !! DIFFERENT DE 0 !!
+	T_Elt testVar = 1; // Valeur test qui sert à tester les piles/files. A modifier si on change de type. !! DIFFERENT DE 0 !!
 	// int taille;
 	// char chaine[20];
+
+	testVar = 1;
+	empiler(&mapile, &testVar);
+	testVar = 2;
+	empiler(&mapile, &testVar);
+	testVar = 3;
+	empiler(&mapile, &testVar);
+	testVar = 2;
+	empiler(&mapile, &testVar);
+	testVar = 5;
+	empiler(&mapile, &testVar);
+	printf("\n%d", noeudValide(mapile));
 
 	do {
 		chx = menu();
@@ -49,4 +64,29 @@ int main() {
 
 	printf("\nau plaisir de vous revoir ...\n");
 	return 0;
+}
+
+
+int noeudValide(T_Pile mapile){
+	int i, y; //Boucleurs
+	for(i = mapile.nbElts-1; i >= 0; i--){
+		for(y = 0; y < i; y++){
+			/* printf("\nElement 1: ");
+			afficherElt(&mapile.Elts[i]);
+			printf("\nElement 2: ");
+			afficherElt(&mapile.Elts[y]);
+			printf("\n---"); */
+			if(mapile.Elts[i] == mapile.Elts[y]){
+				return 1;
+			}
+		}
+	}
+	return 0;
+}
+
+void permutations(){
+	while (noeudValide){
+		/* code */
+	}
+	
 }
