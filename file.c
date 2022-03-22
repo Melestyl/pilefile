@@ -53,8 +53,7 @@ int retirer(T_File *ptrF, T_Elt *ptrE)  {
 int ajouter(T_File *ptrF, T_Elt *ptrE) {
 	// Si espace libre, ajout en queue
 	if (!filePleine(ptrF)) {
-		affecterElt(&ptrF->Elts[ptrF->Queue], ptrE);
-		ptrF->Queue++;
+		affecterElt(&ptrF->Elts[ptrF->Queue++], ptrE);
 		if (ptrF->Queue == MAX + 1) ptrF->Queue = 0;
 	}
 	else
@@ -84,7 +83,7 @@ T_Elt premier(T_File *ptrF) {
 	if (!fileVide(ptrF))
 		return ptrF->Elts[ptrF->Tete];
 	
-	return 0;
+	return 0; //FIXME: Il faudrait trouver une autre valeur, comme NULL, car 0 peut-être une valeur
 }
 
 void afficherFile(T_File *ptrF) {

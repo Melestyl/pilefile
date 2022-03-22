@@ -1,45 +1,61 @@
+/* 
+ * ATTENTION, CONVENTION : 
+ * Si on attend d'une fonction qu'elle retourne un état (vide, plein), alors 1 = oui, 0 = non 
+ * Si c'est une fonction d'action (empiler, dépiler), alors 1 = erreur, 0 = ok
+ */
+
 #include "pile.h"
 
 void initPile(T_Pile *P) {
-	//TODO:
+	P->nbElts = 0;
 }
 
-int pilepleine(const T_Pile *P) {
-	//TODO:
+int pilePleine(const T_Pile *P) {
+	if (P->nbElts == MAX)
+		return 1;
 	
 	return 0;
 }
 
-int pilevide(const T_Pile *P) {
-	//TODO:
+int pileVide(const T_Pile *P) {
+	if (P->nbElts == 0)
+		return 1;
 	
-	return 1;
+	return 0;
 }
 
-int empiler(T_Pile *P, T_Elt e) {
-	//TODO: Renvoie 0 si pile pleine, sinon 1 
+int empiler(T_Pile *P, T_Elt *e) {
+	// Renvoie 1 si pile pleine, sinon 0
+	if (!pilepleine(P))
+		affecterElt(&P->Elts[P->nbElts++], e);
+	else
+		return 1;
 	
 	return 0;
 }
 
 int depiler(T_Pile *P, T_Elt *pelt) {
-	//TODO: Renvoie 0 si pile vide, sinon 1 
+	// Renvoie 1 si pile vide, sinon 0
+	if (!pileVide(P))
+		*pelt = P->Elts[--P->nbElts];
+	else
+		return 1;
 	
 	return 0;
 }
 
 T_Elt sommet(const T_Pile *P) {
-	//TODO:
+	if (!pileVide(P))
+		return P->Elts[P->nbElts - 1];
 	
-	return 0;
+	return 0; //FIXME: Il faudrait trouver une autre valeur, comme NULL, car 0 peut-être une valeur
 }
 
 int hauteur(const T_Pile *P) {
-	//TODO:
-	
-	return 0;
+	return P->nbElts;
 }
 
 void afficherPile(T_Pile *P) {
-	//TODO:
+	for (int i=0; i<P->nbElts; i++)
+		afficherElt
 }
