@@ -10,6 +10,7 @@
 #include "file.h"
 
 int noeudValide(T_Pile mapile);
+int reineValide(T_Pile mapile);
 void permutations(T_Pile mapile, char entree[]);
 void echiquier(T_Pile mapile, int taille);
 int factorial(int n);
