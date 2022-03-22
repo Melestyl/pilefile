@@ -2,9 +2,16 @@
 
 #include "pile.h"
 #include "file.h"
+#include <math.h>
 
 int noeudValide(T_Pile mapile);
 void permutations();
+
+int factorial(int n){
+	if (n==0)
+		return 1;
+	return (f*factorial(f-1));
+}
 
 int menu() {
 	int choix;
@@ -85,8 +92,13 @@ int noeudValide(T_Pile mapile){
 }
 
 void permutations(){
-	while (noeudValide){
-		/* code */
-	}
+	int entreeSimulee; // TODO: Entree simulée
+	int compteur;
+	entreeSimulee = factorial(entreeSimulee);
 	
+	while(compteur < entreeSimulee){
+		while (noeudValide){
+			
+		}
+	}
 }
