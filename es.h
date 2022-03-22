@@ -27,3 +27,4 @@ void afficherElt(T_Elt *);
  * @param T_Elt Source
  */
 void affecterElt(T_Elt *, T_Elt *);
+
