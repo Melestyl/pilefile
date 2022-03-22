@@ -9,18 +9,56 @@ typedef struct {
 } T_File;
 
 /**
- * \brief Teste toutes les fonctions de la file. Si un comportement inhabituel est remarqué, alors 1 est renvoyé.
+ * @brief Teste toutes les fonctions de la file. Si un comportement inhabituel est remarqué, alors 1 est renvoyé.
  * Si une exception est levée (SEGSEV, ...), alors évidemment il y a une erreur.
- * 
- * \param ptrF Pointeur de file à tester
+ *
+ * @param ptrF Pointeur de file à tester
+ * @param testVar La valeur avec laquelle tester
  */
-void testFile(T_File *ptrF, T_Elt *);
+void testFile(T_File *ptrF, T_Elt *testVar);
 
-//TODO: Faire de la dox pour toutes les fonctions
-void initFile(T_File *);		// mettre Tete et Queue à -1
-int retirer(T_File *, T_Elt *); // si pas vide, en tete de file, renvoie 0 si file vide sinon 1
-int ajouter(T_File *, T_Elt *); // si espace libre, ajout en queue, revoie 0 si file pleine sinon 1
-int fileVide(const T_File *);	// qd Tete == 0
-int filePleine(const T_File *); // qd MAX elts dans la file
-T_Elt premier(T_File *);		// valeur en tete de file
-void afficherFile(T_File *);
+/**
+ * @brief Initialise la file, en mettant Tete et Queue à 0
+ *
+ * @param ptrF La file à initialiser
+ */
+void initFile(T_File *);
+
+/**
+ * @brief Défile le dernier élément, et le met dans la variable passée en argument
+ *
+ * @param ptrF La file sur laquelle on défile
+ * @param ptrE La variable dans laquelle on stocke l'élément défilé
+ *
+ * @return 0 si l'opération s'est bien passée, 1 sinon (file vide)
+ */
+int retirer(T_File *ptrF, T_Elt *ptrE);
+
+/**
+ * @brief Ajoute un élément à la file
+ *
+ * @param ptrF File dans laquelle ajouter
+ * @param ptrE Elément à rajouter dans la file
+ *
+ * @return 0 si l'ajout s'est bien passé, 1 sinon (file pleine)
+ */
+int ajouter(T_File *ptrF, T_Elt *ptrE);
+
+/**
+ * @brief Indique si la file est vide
+ *
+ * @param ptrF La file
+ *
+ * @return 1 si file vide, 0 sinon
+ */
+int fileVide(const T_File *ptrF);
+
+/**
+ * @brief Indique si la file est pleine
+ *
+ * @param ptrF
+ * @return
+ */
+int filePleine(const T_File *ptrF); // qd MAX elts dans la file
+char* premier(const T_File *ptrF);		// valeur en tete de file
+void afficherFile(const T_File *ptrF);

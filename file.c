@@ -8,7 +8,7 @@
 #include "file.h"
 
 void testFile(T_File *ptrF, T_Elt *testVar) {
-	T_Elt testVar2 = 0;
+	T_Elt testVar2;
 
 	initFile(ptrF);
 	if (!fileVide(ptrF))
@@ -43,7 +43,7 @@ void initFile(T_File *ptrF) {
 int retirer(T_File *ptrF, T_Elt *ptrE)  {
 	// Si pas vide, en tete de file
 	if (!fileVide(ptrF))
-		*ptrE = ptrF->Elts[--ptrF->Queue];
+		affecterElt(ptrE, &ptrF->Elts[--ptrF->Queue]);
 	else
 		return 1;
 
@@ -78,15 +78,15 @@ int filePleine(const T_File *ptrF) {
 	return 0;
 }
 
-T_Elt premier(T_File *ptrF) {
+T_Elt premier(const T_File *ptrF) {
 	// Valeur en tete de file
 	if (!fileVide(ptrF))
 		return ptrF->Elts[ptrF->Tete];
-	
+
 	return 0; //FIXME: Il faudrait trouver une autre valeur, comme NULL, car 0 peut-être une valeur
 }
 
-void afficherFile(T_File *ptrF) {
+void afficherFile(const T_File *ptrF) {
 	for (int i=0, j=ptrF->Tete; i < (ptrF->Queue - ptrF->Tete); i++, j++) {
 		if (j == MAX) j = 0;
 		afficherElt(&ptrF->Elts[j]);
