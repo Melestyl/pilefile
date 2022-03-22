@@ -6,6 +6,7 @@ typedef struct {
 	int nbElts;
 } T_Pile;
 
+void testPile(T_Pile *P, T_Elt *testVar);
 void initPile(T_Pile *);		// mettre nbElts à 0
 int pilePleine(const T_Pile *); // renvoie 1  qd nbElts == MAX
 int pileVide(const T_Pile *);	// renvoie 1  qd nbElts == 0
