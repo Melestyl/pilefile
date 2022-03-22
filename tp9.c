@@ -1,14 +1,6 @@
 // SDA1 TP 9 PILE de TAD (PILE d'ELEMENT)
 
 #include "tp9.h"
-#include "file.h"
-#include <math.h>
-
-int factorial(int n){
-	if (n==0)
-		return 1;
-	return (f*factorial(f-1));
-}
 
 int menu() {
 	int choix;
@@ -88,14 +80,18 @@ int noeudValide(T_Pile mapile){
 	return 0;
 }
 
-void permutations(){
+/*void permutations(){
 	int entreeSimulee; // TODO: Entree simulée
 	int compteur;
 	entreeSimulee = factorial(entreeSimulee);
 
 	while(compteur < entreeSimulee){
-		while (noeudValide){
-
-		}
+		while (noeudValide);
 	}
+}*/
+
+int factorial(int n){
+	if (n==0)
+		return 1;
+	return (n*factorial(n-1));
 }
