@@ -26,7 +26,7 @@ int pileVide(const T_Pile *P) {
 
 int empiler(T_Pile *P, T_Elt *e) {
 	// Renvoie 1 si pile pleine, sinon 0
-	if (!pilepleine(P))
+	if (!pilePleine(P))
 		affecterElt(&P->Elts[P->nbElts++], e);
 	else
 		return 1;
@@ -57,5 +57,5 @@ int hauteur(const T_Pile *P) {
 
 void afficherPile(T_Pile *P) {
 	for (int i=0; i<P->nbElts; i++)
-		afficherElt
+		afficherElt(&P->Elts[i]);
 }
